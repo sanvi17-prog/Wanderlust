@@ -1,0 +1,60 @@
+<%layout("/layout/boilerplate")%>
+<div class="row"> 
+    <div class="col-8 offset-2">
+<h3>Create a New Listing</h3>
+<body>
+    <div class="row"> 
+
+        <form method="POST" action="/listings" novalidate class="needs-validation">
+     <div class="mb-3">
+        <label for="title" class="form-label" >Title</label>
+        <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required>
+        <div class="valid-feedback">Title looks amazing!</div>
+        </div>
+        <br>
+
+
+        <div class="mb-3">
+            <label for="description" class="form-label" >Description</label>
+        <textarea name="listing[description]" placeholder="enter description" type="text" class="form-control" required></textarea>
+    <div class="invalid-feedback">please describe in short</div>   
+    </div>
+        <br>
+
+        <div class="mb-3">
+            <label for="image" class="form-label" >Image Link</label>
+        <input name="listing[image][url]" placeholder="enter image url" class="form-control">
+       <div class="invalid-feedback">Enter an image</div> 
+    </div>
+        <br>
+        
+        <div class="mb-3">
+            <label for="price" class="form-label" >Price</label>
+        <input name="listing[price]" placeholder="enter price" type="number" class="form-control" required>
+    
+    <div class="invalid-feedback">Enter Valid Price</div>    
+    </div>
+        <br>
+        
+        <div class="mb-3">
+            <label for="country" class="form-label" >Country</label>
+        <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required>
+    <div class="invalid-feedback">Enter Country Name</div>     
+    </div>
+        <br>
+
+        <div class="mb-3">
+            <label for="location" class="form-label" >Location name</label>
+        <input name="listing[location]" placeholder="enter location" type="text" class="form-control " required>
+    <div class="invalid-feedback">Enter Specific Location </div>     
+    </div>
+        <br>
+
+        <button class="btn btn-dark add-btn">Add</button>
+        <br>
+        <br>
+    </form>
+    <script src="/js/script.js"></script>
+</body>
+</div>
+</div>
