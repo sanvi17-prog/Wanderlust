@@ -92,6 +92,11 @@ footer.f-info {
     background-color: #fe424d !important;
     border: none;
 }
+
+.btn-dark {
+    background-color: #222 !important;
+    border: none;
+}
 .btns {
     margin-bottom: 3rem;
 }
