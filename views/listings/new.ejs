@@ -5,7 +5,7 @@
 <body>
     <div class="row"> 
 
-        <form method="POST" action="/listings" novalidate class="needs-validation">
+        <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
      <div class="mb-3">
         <label for="title" class="form-label" >Title</label>
         <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required>
@@ -20,13 +20,10 @@
     <div class="invalid-feedback">please describe in short</div>   
     </div>
         <br>
-
         <div class="mb-3">
-            <label for="image" class="form-label" >Image Link</label>
-        <input name="listing[image][url]" placeholder="enter image url" class="form-control">
-       <div class="invalid-feedback">Enter an image</div> 
-    </div>
-        <br>
+            <label for="image" class="form-label" >Upload Listing Image</label>
+        <input name="listing[image][url]" type="file" class="form-control">
+      </div>
         
         <div class="mb-3">
             <label for="price" class="form-label" >Price</label>
