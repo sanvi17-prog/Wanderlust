@@ -53,8 +53,16 @@ console.log(url,"..",filename);
 
   module.exports.updateListing=async (req, res) => {
     let { id } = req.params;
-    const listing = await Listing.findById(id);
-    res.render("listings/edit.ejs", { listing });
+    let listing= await Listing.findByIdAndUpdate(id, { ...req.body.listing});
+    
+    if(typeof req.file !=="undefined"){
+    let url=req.file.path;
+let filename = req.file.filename;
+listing.image={url,filename};    
+await listing.save();
+    }
+    req.flash("success","Listing Updated!");
+    res.redirect(`/listings/${ id }`);
   };
 
   module.exports.deleteListing=async (req, res) => {

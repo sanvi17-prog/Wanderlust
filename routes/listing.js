@@ -49,7 +49,12 @@ router.post(
 router.get("/:id/edit",isLoggedIn,listingController.editListing);
 
 //Update Route
-router.put("/:id", isLoggedIn,listingController.updateListing);
+router.put(
+  "/:id",
+  upload.single("listing[image]"),
+  isLoggedIn,
+  wrapAsync(listingController.updateListing)
+);
 
 //Delete Route
 router.delete("/:id",isLoggedIn,listingController.deleteListing);
