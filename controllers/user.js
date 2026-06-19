@@ -1,4 +1,6 @@
-module.exports.signup=async (req, res) => {
+const User = require("../models/user.js");
+
+module.exports.signup = async (req, res, next) => {
     try {
       let { username, email, password } = req.body;
 
@@ -22,11 +24,10 @@ module.exports.signup=async (req, res) => {
 
      
     } catch (e) {
-
-      req.flash("error", e.message);
-
-      res.redirect("/signup");
-    }
+  console.log(e);
+  req.flash("error", e.message);
+  res.redirect("/signup");
+}
   };
 
   module.exports.loginForm=(req,res) =>{
@@ -35,13 +36,14 @@ module.exports.signup=async (req, res) => {
 };
 
 module.exports.login = async (req, res) => {
+  console.log("res.locals.redirectUrl =", res.locals.redirectUrl);
+
   req.flash("success", "Welcome back to Wanderlust!");
 
   let redirectUrl = res.locals.redirectUrl || "/listings";
 
   res.redirect(redirectUrl);
 };
-
   module.exports.logout=(req, res, next) => {
 
   req.logout((err) => {
